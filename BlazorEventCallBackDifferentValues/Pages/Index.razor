@@ -1,0 +1,21 @@
+﻿@page "/"
+
+<h1>Hello, world! @s  @i  @d </h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+<Counter EventCallback="Assign"></Counter>
+
+@code{
+    string s;
+    int i;
+    decimal d;
+    public void Assign((string, int, decimal) tuple)
+    {
+        s = tuple.Item1;
+        i = tuple.Item2;
+        d = tuple.Item3;
+    }
+}
